@@ -42,9 +42,10 @@ struct InfoView: View {
         }
     }
     
-    func removeFromBalance(value: Double){
+    func removeFromBalance(value: Float){
         let balanceObj = balances.first ?? Balance(context: viewContext)
-        balanceObj.value -= value
+         
+        balanceObj.value -= Int64(value * 100)
         do {
             try viewContext.save()
         } catch {
@@ -81,7 +82,6 @@ struct InfoView: View {
                     Text("R$")
                     TextField("Price", value: $value, formatter: makeNumberFormatter())
                         .keyboardType(.decimalPad)
-                        .frame(width: 50)
                 }
 
             }
@@ -101,13 +101,13 @@ struct InfoView: View {
             }
             if(firstTime){
                 selectedItem?.firstTime = false
-                removeFromBalance(value: value)
+                removeFromBalance(value: Float(value))
             }else{
                 if(selectedItem?.value != value){
                 
                     let newValue = value - selectedItem!.value
                     
-                    removeFromBalance(value: newValue)
+                    removeFromBalance(value: Float(newValue))
 
                 }
             }
