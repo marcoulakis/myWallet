@@ -27,6 +27,7 @@ struct BalanceView: View {
                         TextField("New Balance", text: $newBalance)
                             .keyboardType(.decimalPad)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .environment(\.layoutDirection, .rightToLeft)
                     } else {
                         Text("R$ \(balance, specifier: "%.2f")")
                     }
