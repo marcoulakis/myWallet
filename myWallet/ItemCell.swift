@@ -18,7 +18,8 @@ extension Calendar {
 struct ItemCell: View {
     @EnvironmentObject var dateHolder: DateHolder
     @ObservedObject var passedItem: Item
-    
+    @FetchRequest(entity: Balance.entity(), sortDescriptors: []) var balances: FetchedResults<Balance>
+
 
 
     
@@ -53,7 +54,7 @@ struct ItemCell: View {
                 }
             }
             Spacer()
-            Text(String(format: "%.2f R$", passedItem.value))
+            Text(String(format: "%.2f \(balances.first?.coin ?? "$")", passedItem.value))
         }
 
     }

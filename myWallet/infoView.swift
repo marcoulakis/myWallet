@@ -79,11 +79,10 @@ struct InfoView: View {
                 DatePicker("Date:", selection: $purchaseDate, displayedComponents: displayComps())
                     .foregroundColor(.secondary)
                 HStack{
-                    Text("R$")
+                    Text(balances.first?.coin ?? "$")
                     TextField("Price", value: $value, formatter: makeNumberFormatter())
                         .keyboardType(.decimalPad)
                 }
-
             }
             Section(){
                 Button("Save", action: saveAction)

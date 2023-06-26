@@ -13,11 +13,16 @@ struct myWalletView: View {
     @EnvironmentObject var dateHolder: DateHolder
 
     @State private var isEditingBalance = false
+    @State private var isEditingCoin = false
     @State private var newBalance = ""
 
     @FetchRequest(entity: Balance.entity(), sortDescriptors: []) var balances: FetchedResults<Balance>
 
+    private var coin: String {
+        return balances.first?.coin ?? "$"
+    }
     private var balance: Float {
+
         if isEditingBalance {
             return Float(newBalance) ?? 0
         } else {
@@ -28,7 +33,7 @@ struct myWalletView: View {
             }
         }
     }
-
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.purchaseDate, ascending: false)],
         animation: .default)
@@ -42,7 +47,7 @@ struct myWalletView: View {
                         Text("Balance:")
                             .font(.system(size: 44))
                             .foregroundColor(.primary)
-                        Text(String(format: "R$ %.2f", (balance/100)))
+                        Text(String(format: "\(coin) %.2f", (balance/100)))
                             .font(.system(size: 32))
                             .bold()
                             .foregroundColor(.primary)

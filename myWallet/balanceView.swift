@@ -16,20 +16,26 @@ struct BalanceView: View {
 
     @State private var isEditingBalance = false
     @State private var newBalance = ""
+    @State private var newCoin = ""
+
 
     var body: some View {
         Form {
-            Section(header: Text("Bank account")) {
+            Section(header: Text("Financial Balance")) {
                 HStack {
                     Text("Balance")
                     Spacer()
                     if isEditingBalance {
+                        TextField("$$$", text: $newCoin)
+                            .frame(width: 55)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .multilineTextAlignment(.center)
                         TextField("New Balance", text: $newBalance)
                             .keyboardType(.decimalPad)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .environment(\.layoutDirection, .rightToLeft)
                     } else {
-                        Text("R$ \(balance, specifier: "%.2f")")
+                        Text("\(coin) \(balance, specifier: "%.2f")")
                     }
                 }
 
@@ -38,11 +44,16 @@ struct BalanceView: View {
                     if isNewBalanceNil {
                         newBalance = String(format: "%.2f", balance)
                     }
+                    let isNewCoinNil = newCoin.trimmingCharacters(in: .whitespaces).isEmpty
+                    if isNewCoinNil {
+                        newCoin = coin
+                    }
 
                     isEditingBalance.toggle()
 
                     if !isEditingBalance {
                         saveBalance()
+                        saveCoin()
                     }
                 }) {
                     Text(isEditingBalance ? "Save" : "Edit")
@@ -67,6 +78,18 @@ struct BalanceView: View {
             print("Error saving balance: \(error.localizedDescription)")
         }
     }
+    
+    private func saveCoin() {
+        let balanceObj = balances.first ?? Balance(context: viewContext)
+
+        balanceObj.coin = newCoin
+
+        do {
+            try viewContext.save()
+        } catch {
+            print("Error saving balance: \(error.localizedDescription)")
+        }
+    }
 
     private var balance: Float {
         if isEditingBalance {
@@ -80,6 +103,18 @@ struct BalanceView: View {
                 return Float(balanceValue) / 100
             } else {
                 return 0.0
+            }
+        }
+    }
+    
+    private var coin: String {
+        if isEditingBalance {
+            return String(newCoin)
+        } else {
+            if let balanceCoin = balances.first?.coin {
+                return balanceCoin
+            } else {
+                return "$"
             }
         }
     }
