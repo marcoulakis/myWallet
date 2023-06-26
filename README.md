@@ -4,15 +4,15 @@
 
 
 <div>
-  <img src="https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/dark.png" alt="Scrennshot-of-Home-dark" height="350" align="right"/>
-  <img src="https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/light.png" alt="Scrennshot-of-Home-light" height="350" align="right"/>
+  <img src="https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/dark.png" alt="Scrennshot-of-Home-dark" height="400" align="right"/>
+  <img src="https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/light.png" alt="Scrennshot-of-Home-light" height="400" align="right"/>
   
   
   <h2> Overview</h2>
-  <p align="left">My Wallet is a convenient and user-friendly mobile application available on the App Store that helps you manage your finances effectively. With My Wallet, you can easily track your expenses by recording every purchase you make. Whether it's daily expenses, shopping, or personal finance management, this app has got you covered.</p>
+  <p align="left">My Wallet is a convenient and user-friendly mobile application coming soon to the App Store that helps you manage your finances effectively. With My Wallet, you can easily track your expenses by recording every purchase you make. Whether it's daily expenses, shopping, or personal finance management, this app has got you covered.</p>
   <p align="center">
      <img src="https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/app-store.png" alt="logo" width="200" />
-   <img src="https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/logo.png" alt="logo" width="130" />
+   <img src="https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/logo.png" alt="logo" width="150" />
   </p>
 </div>
 
