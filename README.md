@@ -4,7 +4,7 @@
 
 My Wallet is a convenient and user-friendly mobile application available on the App Store that helps you manage your finances effectively. With My Wallet, you can easily track your expenses by recording every purchase you make. Whether it's daily expenses, shopping, or personal finance management, this app has got you covered.
 
-![Screnshot of Home]([http://url/to/img.png](https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/dark.png))
+![Screnshot of Home](https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/dark.png)
 ## Key Features
 
  - **Expense Tracking:** Record and track your expenses with ease. Input the
