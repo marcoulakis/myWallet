@@ -4,7 +4,7 @@
 
 
 <div>
-  <img src="https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/all.png" alt="Scrennshot-of-Home-dark" height="550" align="right"/>
+  <img src="https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/all-bg.png" alt="Scrennshot-of-Home-dark" height="500" align="right"/>
   
   
   <h2> Overview</h2>
