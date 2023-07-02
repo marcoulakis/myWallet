@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-extension NumberFormatter {
-    static var currencyStyle: NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = Locale.current
-        return formatter
-    }
-}
-
 @main
 struct myWalletApp: App {
     let persistenceController = PersistenceController.shared
