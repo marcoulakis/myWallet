@@ -15,8 +15,9 @@ struct BalanceView: View {
     @FetchRequest(entity: Balance.entity(), sortDescriptors: []) var balances: FetchedResults<Balance>
 
     @State private var isEditingBalance = false
-    @State private var newBalance = ""
+//    @State private var newBalance = ""
     @State private var newCoin = ""
+    @State private var newBalance: Float = 0.0
 
 
     var body: some View {
@@ -30,7 +31,7 @@ struct BalanceView: View {
                             .frame(width: 55)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .multilineTextAlignment(.center)
-                        TextField("New Balance", text: $newBalance)
+                        TextField("New Balance", value: $newBalance, formatter: NumberFormatter.currencyStyle)
                             .keyboardType(.decimalPad)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .environment(\.layoutDirection, .rightToLeft)
@@ -40,10 +41,10 @@ struct BalanceView: View {
                 }
 
                 Button(action: {
-                    let isNewBalanceNil = newBalance.trimmingCharacters(in: .whitespaces).isEmpty
-                    if isNewBalanceNil {
-                        newBalance = String(format: "%.2f", balance)
-                    }
+                    let isNewBalanceNil = newBalance == 0.0
+                       if isNewBalanceNil {
+                           newBalance = balance
+                       }
                     let isNewCoinNil = newCoin.trimmingCharacters(in: .whitespaces).isEmpty
                     if isNewCoinNil {
                         newCoin = coin
@@ -65,12 +66,8 @@ struct BalanceView: View {
     private func saveBalance() {
         let balanceObj = balances.first ?? Balance(context: viewContext)
 
-        if let newBalanceFloat = Float(newBalance) {
-            balanceObj.value = Int64((newBalanceFloat * 100).rounded(.towardZero))
+          balanceObj.value = Int64((newBalance * 100).rounded(.towardZero))
 
-        } else {
-            balanceObj.value = 0
-        }
 
         do {
             try viewContext.save()
@@ -93,17 +90,13 @@ struct BalanceView: View {
 
     private var balance: Float {
         if isEditingBalance {
-            if let newBalanceFloat = Float(newBalance) {
-                return newBalanceFloat
-            } else {
-                return 0.0
-            }
-        } else {
-            if let balanceValue = balances.first?.value {
-                return Float(balanceValue) / 100
-            } else {
-                return 0.0
-            }
+                return newBalance
+       } else {
+               if let balanceValue = balances.first?.value {
+                   return Float(balanceValue) / 100
+               } else {
+                   return 0.0
+               }
         }
     }
     

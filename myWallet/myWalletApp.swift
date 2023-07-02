@@ -7,20 +7,12 @@
 
 import SwiftUI
 
-extension String {
-    static let numberFormatter = NumberFormatter()
-    
-    var floatValue: Float {
-        String.numberFormatter.decimalSeparator = "."
-        if let result = String.numberFormatter.number(from: self) {
-            return result.floatValue
-        } else {
-            String.numberFormatter.decimalSeparator = ","
-            if let result = String.numberFormatter.number(from: self) {
-                return result.floatValue
-            }
-        }
-        return 0
+extension NumberFormatter {
+    static var currencyStyle: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current
+        return formatter
     }
 }
 
