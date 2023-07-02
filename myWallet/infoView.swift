@@ -21,7 +21,7 @@ struct InfoView: View {
     @State var name: String
     @State var desc: String
     @State var purchaseDate: Date
-    @State var value: Double
+    @State var value: Double = 0.0
     @State var firstTime: Bool
 
     
@@ -103,15 +103,11 @@ struct InfoView: View {
                 removeFromBalance(value: Float(value))
             }else{
                 if(selectedItem?.value != value){
-                
                     let newValue = value - selectedItem!.value
-                    
                     removeFromBalance(value: Float(newValue))
-
                 }
             }
             
-            print(value)
             selectedItem?.name = name
             selectedItem?.desc = desc
             selectedItem?.purchaseDate = purchaseDate
