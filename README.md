@@ -4,14 +4,20 @@
 
 
 <div>
-  <img src="https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/all-bg.png" alt="Scrennshot-of-Home-dark" height="400" align="right"/>
+  <a href="#screenshot">
+    <img src="https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/all-bg.png" alt="Scrennshot-of-Home-dark" height="400" align="right"/>
+  </a>
   
   
   <h2> Overview</h2>
   <p align="left">My Wallet is a convenient and user-friendly mobile application coming soon to the App Store that helps you manage your finances effectively. With My Wallet, you can easily track your expenses by recording every purchase you make. Whether it's daily expenses, shopping, or personal finance management, this app has got you covered.</p>
   <p align="center">
+    <a href="#AppStore">
      <img src="https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/app-store.png" alt="logo" width="200" />
-   <img src="https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/logo.png" alt="logo" width="150" />
+    </a>
+    <a href="#logo">
+     <img src="https://raw.githubusercontent.com/marcoulakis/myWallet/main/.github/images/logo.png" alt="logo" width="150" />
+    </a>
   </p>
 </div>
 
@@ -120,6 +126,10 @@ To run My Wallet on your device, please ensure that you meet the following compa
 > Before downloading and installing My Wallet, please check your
 > device's operating system version and update to the latest iOS version
 > if necessary to ensure compatibility with the app.
+
+> **Note**
+> This project is licensed under the [MIT License](LICENSE).
+
 
 ---
 
